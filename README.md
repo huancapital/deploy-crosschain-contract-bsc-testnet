@@ -88,6 +88,10 @@ npx hardhat test
 - Use environment variables for sensitive data
 - Test thoroughly before deploying to mainnet
 
+## Run test smart contract
+
+- ![image](https://github.com/user-attachments/assets/91d71a80-5551-43c9-a943-6a430455cf06)
+
 ## License
 
 MIT
