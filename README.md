@@ -1,139 +1,97 @@
-![image](https://github.com/user-attachments/assets/ad6fd554-71ec-498c-9814-23cfdefd208c)
+# Cross-Chain Contract Deployment on BSC Testnet
 
-# BNW Token (BNWT)
-
-This repository contains the smart contract and deployment scripts for the BNW Token (BNWT), an ERC20 token deployed on the BNW network.
-
-## Contract Details
-
-- **Token Name**: BNW Token
-- **Token Symbol**: BNWT
-- **Total Supply**: 1,000,000,000 BNWT
-- **Decimals**: 18
-- **Network**: BNW Network (Chain ID: 714)
-- **Latest Contract Address**: `0x83257E0d7013Aa3fA1CE328eC5566e51780702BE`
-
-## Features
-
-- Standard ERC20 token implementation
-- Minting capability (owner only)
-- Burning capability (any token holder)
-- OpenZeppelin contracts integration
-- Comprehensive test suite
-- Gas optimization
-- Contract verification support
+This project demonstrates the deployment of smart contracts on the Binance Smart Chain (BSC) testnet.
 
 ## Prerequisites
 
-- Node.js (v16 or later)
-- Yarn package manager
-- A wallet with BNW for deployment gas fees
+- Node.js (v14 or higher)
+- npm or yarn
+- MetaMask wallet with BSC testnet configured
+- BSC testnet BNB for gas fees
 
-## Installation
+## BSC Testnet Configuration
+
+### Network Details
+- Network Name: BSC Testnet
+- RPC URL: https://data-seed-prebsc-1-s1.binance.org:8545/
+- Chain ID: 97
+- Currency Symbol: tBNB
+- Block Explorer: https://testnet.bscscan.com
+
+### Adding BSC Testnet to MetaMask
+1. Open MetaMask
+2. Click on the network dropdown
+3. Select "Add Network"
+4. Enter the network details above
+5. Click "Save"
+
+## Getting Started
 
 1. Clone the repository:
 ```bash
 git clone <repository-url>
-cd bnw-tokens
+cd deploy-crosschain-contract-bsc-testnet
 ```
 
 2. Install dependencies:
 ```bash
+npm install
+# or
 yarn install
 ```
 
+3. Create a `.env` file in the root directory and add your private key:
+```
+PRIVATE_KEY=your_private_key_here
+```
+
+⚠️ **Important**: Never commit your private key to version control. The `.env` file should be in your `.gitignore`.
+
 ## Deployment
 
-To deploy the token to the BNW network:
+To deploy the contract to BSC testnet:
 
-1. Make sure you have enough BNW in your wallet for deployment gas fees
-2. Run the deployment script:
 ```bash
-yarn hardhat run scripts/deploy.ts --network bnw
+npx hardhat run scripts/deploy.js --network bscTestnet
 ```
-
-The script will:
-- Deploy the BNWT token contract
-- Set the initial supply to 1 billion tokens
-- Wait for transaction confirmations
-- Output the contract address and deployment details
-
-## Development
-
-### Compile Contracts
-```bash
-yarn hardhat compile
-```
-
-### Run Tests
-```bash
-yarn hardhat test
-```
-
-### Network Configuration
-The project is configured to deploy to the BNW network with the following settings:
-- RPC URL: http://174.138.18.77:8545
-- Chain ID: 714
 
 ## Contract Verification
 
-To verify the contract on the block explorer (if supported), set the environment variable:
+After deployment, verify your contract on BSCScan:
+
 ```bash
-export VERIFY_CONTRACT=true
+npx hardhat verify --network bscTestnet <deployed-contract-address> <constructor-arguments>
 ```
-
-Then run the deployment script as usual.
-
-## Contract Details
-
-### BNWToken.sol
-- **Name**: BNW Token
-- **Symbol**: BNW
-- **Decimals**: 18
-- **Initial Supply**: 1,000,000,000 BNW
-
-### Functions
-- `transfer(address to, uint256 amount)`: Transfer tokens to another address
-- `mint(address to, uint256 amount)`: Mint new tokens (owner only)
-- `burn(uint256 amount)`: Burn tokens from your balance
 
 ## Testing
 
-The test suite includes:
-- Deployment tests
-- Transfer functionality
-- Minting permissions
-- Burning functionality
-- Error cases
+Run the test suite:
 
-Run the test suite with:
 ```bash
-yarn hardhat test
+npx hardhat test
 ```
 
-## Gas Optimization
+## Project Structure
 
-The contract is optimized for gas efficiency:
-- Uses OpenZeppelin's optimized contracts
-- Implements Solidity 0.8.20
-- Uses the optimizer with 200 runs
-- Implements viaIR for better optimization
+```
+├── contracts/          # Smart contract source files
+├── scripts/           # Deployment and interaction scripts
+├── test/             # Test files
+├── hardhat.config.js # Hardhat configuration
+└── .env              # Environment variables (not tracked in git)
+```
 
 ## Security
 
-- Uses OpenZeppelin's audited contracts
-- Implements standard security patterns
-- Includes comprehensive test coverage
-- Uses SafeMath (built into Solidity 0.8.x)
+- Always use a dedicated wallet for testing
+- Never share your private keys
+- Use environment variables for sensitive data
+- Test thoroughly before deploying to mainnet
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+MIT
 
-## Contributing
+## Support
 
-1. Fork the repository
-2. Create your feature branch
-3. Commit your changes
-4. Push to the branch
-5. Create a Pull Request
+For support, please open an issue in the repository.
