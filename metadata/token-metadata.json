@@ -1,0 +1,23 @@
+{
+    "name": "BNW Token",
+    "symbol": "BNWT",
+    "description": "BNW Token - A decentralized digital asset",
+    "decimals": 18,
+    "image": "ipfs://QmYourImageHash/bnw-logo.png",
+    "properties": {
+        "tokenType": "ERC20",
+        "logoFormat": "png",
+        "website": "https://bnwtoken.com",
+        "whitepaper": "https://bnwtoken.com/whitepaper",
+        "social": {
+            "twitter": "https://twitter.com/bnwtoken",
+            "telegram": "https://t.me/bnwtoken",
+            "github": "https://github.com/bnwtoken"
+        }
+    },
+    "version": {
+        "major": 1,
+        "minor": 0,
+        "patch": 0
+    }
+} 
