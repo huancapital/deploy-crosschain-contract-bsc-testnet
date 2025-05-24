@@ -1,4 +1,4 @@
-# Cross-Chain Contract Deployment on BSC Testnet
+# Cross-Chain Contract Deployment on BSC on Testnet
 
 This project demonstrates the deployment of smart contracts on the Binance Smart Chain (BSC) testnet.
 
